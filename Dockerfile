@@ -17,8 +17,7 @@ RUN apt-get update && \
 # Copy only requirements.txt initially to leverage Docker cache
 WORKDIR /workspace
 COPY requirements.txt /workspace/
-RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install -r requirements.txt
 # Define a build-time argument for image type
 ARG IMAGE_TYPE=full
 
@@ -38,3 +37,4 @@ RUN if [ "$IMAGE_TYPE" != "elite" ]; then \
 COPY . /workspace
 
 EXPOSE 9871 9872 9873 9874 9880
+CMD ["python", "api.py", "-dr", "dingzhen_10.wav", "-dt", "有可能以后再也听不到这些声音了，他们是我们的朋友。", "-dl", "zh"]
