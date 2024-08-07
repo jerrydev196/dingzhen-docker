@@ -38,3 +38,4 @@ RUN if [ "$IMAGE_TYPE" != "elite" ]; then \
 COPY . /workspace
 
 EXPOSE 9871 9872 9873 9874 9880
+CMD ["python", "api.py", "-dr", "dingzhen_10.wav", "-dt", "有可能以后再也听不到这些声音了，他们是我们的朋友。", "-dl", "zh"]
