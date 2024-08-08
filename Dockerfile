@@ -17,7 +17,7 @@ RUN apt-get update && \
 # Copy only requirements.txt initially to leverage Docker cache
 WORKDIR /workspace
 COPY requirements.txt /workspace/
-RUN pip install -r requirements.txt
+RUN pip install -r --no-cache-dir requirements.txt
 # Define a build-time argument for image type
 ARG IMAGE_TYPE=full
 
