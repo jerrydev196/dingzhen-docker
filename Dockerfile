@@ -26,7 +26,7 @@ ARG IMAGE_TYPE=full
 COPY ./Docker /workspace/Docker 
 # elite 类型的镜像里面不包含额外的模型
 RUN chmod +x /workspace/Docker/download.sh && \
-    bash /workspace/Docker/download.sh && \
+    bash /workspace/Docker/download.sh
 
 # Copy the rest of the application
 COPY . /workspace
