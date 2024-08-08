@@ -17,19 +17,3 @@ RUN apt-get update && \
 # Copy only requirements.txt initially to leverage Docker cache
 WORKDIR /workspace
 COPY requirements.txt /workspace/
-RUN pip install --no-cache-dir -r  requirements.txt
-# Define a build-time argument for image type
-ARG IMAGE_TYPE=full
-
-# Conditional logic based on the IMAGE_TYPE argument
-# Always copy the Docker directory, but only use it if IMAGE_TYPE is not "elite"
-COPY ./Docker /workspace/Docker 
-# elite 类型的镜像里面不包含额外的模型
-RUN chmod +x /workspace/Docker/download.sh && \
-    bash /workspace/Docker/download.sh
-
-# Copy the rest of the application
-COPY . /workspace
-
-EXPOSE 9871 9872 9873 9874 9880
-CMD ["python", "api.py", "-dr", "dingzhen_10.wav", "-dt", "有可能以后再也听不到这些声音了，他们是我们的朋友。", "-dl", "zh"]
