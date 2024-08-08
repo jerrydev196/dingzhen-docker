@@ -12,7 +12,6 @@ RUN apt-get update && \
 # Copy only requirements.txt initially to leverage Docker cache
 WORKDIR /workspace
 COPY requirements.txt /workspace/
-ENV PIP_INDEX_URL https://mirrors.aliyun.com/pypi/simple/
 RUN pip install --no-cache-dir -r  requirements.txt
 # Define a build-time argument for image type
 ARG IMAGE_TYPE=full
