@@ -3,8 +3,8 @@ import sys,os
 import torch
 
 # 推理用的指定模型
-sovits_path = "SoVITS_weights\dingzhen_e8_s280.pth"
-gpt_path = "GPT_weights\dingzhen-e15.ckpt"
+sovits_path = "SoVITS_weights/dingzhen_e8_s280.pth"
+gpt_path = "GPT_weights/dingzhen-e15.ckpt"
 is_half_str = os.environ.get("is_half", "True")
 is_half = True if is_half_str.lower() == 'true' else False
 is_share_str = os.environ.get("is_share","False")
